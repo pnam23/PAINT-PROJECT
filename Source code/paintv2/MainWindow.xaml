@@ -1,0 +1,360 @@
+﻿<Fluent:RibbonWindow x:Class="paintv2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:Fluent ="clr-namespace:Fluent;assembly=Fluent"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:paintv2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="1200" Loaded="RibbonWindow_Loaded" Closing="RibbonWindow_Closing"
+        WindowStartupLocation="CenterScreen">
+
+    <Fluent:RibbonWindow.Resources>
+        <Style x:Key="DisableMouseOver" TargetType="Button">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid Background="{TemplateBinding Background}">
+                            <ContentPresenter />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Fluent:RibbonWindow.Resources>
+
+    <DockPanel LastChildFill="True">
+        <StackPanel DockPanel.Dock="Top" Name="actions">
+            <Fluent:Ribbon>
+                <!--Backstage-->
+                <Fluent:Ribbon.Menu>
+                    <Fluent:ApplicationMenu Header="File">
+                        <Fluent:MenuItem Header="New" Name="btnCreate" Click="btnCreate_Click">
+                            <Fluent:MenuItem.Icon>
+                                <Image Source="\Images\new_file.png" Margin="0 5 0 0"/>
+                            </Fluent:MenuItem.Icon>
+                        </Fluent:MenuItem>
+                        <Fluent:MenuItem Header="Open" Name="btnOpen" Click="btnOpen_Click">
+                            <Fluent:MenuItem.Icon>
+                                <Image Source="\Images\open_file.png" Margin="0 5 0 0"/>
+                            </Fluent:MenuItem.Icon>
+                        </Fluent:MenuItem>
+                        <Fluent:MenuItem Header="Save" Name="btnSave" Click="btnSave_Click">
+                            <Fluent:MenuItem.Icon>
+                                <Image Source="\Images\save.png" Margin="0 5 0 0"/>
+                            </Fluent:MenuItem.Icon>
+                        </Fluent:MenuItem>
+                        <Fluent:MenuItem Header="Import" Name="btnImport" Click="btnImport_Click">
+                            <Fluent:MenuItem.Icon>
+                                <Image Source="\Images\import.png" Margin="0 5 0 0"/>
+                            </Fluent:MenuItem.Icon>
+                        </Fluent:MenuItem>
+                        <Fluent:MenuItem Header="Export" Name="btnExport" Click="btnExport_Click">
+                            <Fluent:MenuItem.Icon>
+                                <Image Source="\Images\export.png" Margin="0 5 0 0"/>
+                            </Fluent:MenuItem.Icon>
+                        </Fluent:MenuItem>
+                    </Fluent:ApplicationMenu>
+
+                </Fluent:Ribbon.Menu>
+                <!--Tabs-->
+                <Fluent:RibbonTabItem Header="Home">
+                    <!--Tab Selection-->
+                    <Fluent:RibbonGroupBox Width="60" Header="Selection">
+                        <Fluent:Button Cursor = "Hand" Name="btnSelect" Header="Select" Padding="4,4,4,0" Click="btnSelect_Click">
+                            <Fluent:Button.LargeIcon>
+                                <Image Source="\Images\cursor.png" RenderOptions.BitmapScalingMode="HighQuality"></Image>
+                            </Fluent:Button.LargeIcon>
+                        </Fluent:Button>
+                    </Fluent:RibbonGroupBox>
+                    <!--Tab Tools-->
+                    <Fluent:RibbonGroupBox Header="Tools">
+                        <Fluent:Button Cursor = "Hand" Name="btnPencil" Header="Pencil" Padding="4,4,4,0" Click="btnPencil_Click">
+                            <Fluent:Button.LargeIcon>
+                                <Image Source = "\Images\pencil.png" RenderOptions.BitmapScalingMode="HighQuality"></Image>
+                            </Fluent:Button.LargeIcon>
+                        </Fluent:Button>
+
+                        <Fluent:Button Cursor = "Hand" Name="btnEraser" Header="Eraser" Padding="4,4,4,0" Click="btnEraser_Click">
+                            <Fluent:Button.LargeIcon>
+                                <Image Source = "\Images\eraser.png" RenderOptions.BitmapScalingMode="HighQuality"></Image>
+                            </Fluent:Button.LargeIcon>
+                        </Fluent:Button>
+
+                        <Fluent:Button Cursor = "Hand" Name="btnUndo" Header="Undo" Padding="4,4,4,0" Click="btnUndo_Click">
+                            <Fluent:Button.LargeIcon>
+                                <Image Source = "\Images\undo.png" RenderOptions.BitmapScalingMode="HighQuality"></Image>
+                            </Fluent:Button.LargeIcon>
+                        </Fluent:Button>
+
+                        <Fluent:Button Cursor = "Hand" Name="btnRedo" Header="Redo" Padding="4,4,4,0" Click="btnRedo_Click">
+                            <Fluent:Button.LargeIcon>
+                                <Image Source = "\Images\redo.png" RenderOptions.BitmapScalingMode="HighQuality"></Image>
+                            </Fluent:Button.LargeIcon>
+                        </Fluent:Button>
+
+                        
+                    </Fluent:RibbonGroupBox>
+                    <!--Tab Clipboard-->
+                    <Fluent:RibbonGroupBox Header="Clipboard">
+                        <Fluent:Button Cursor = "Hand" Name="btnCopy" Header="Copy" Padding="4,4,4,0" Click="btnCopy_Click">
+                            <Fluent:Button.LargeIcon>
+                                <Image Source = "\Images\copy.png" RenderOptions.BitmapScalingMode="HighQuality"></Image>
+                            </Fluent:Button.LargeIcon>
+                        </Fluent:Button>
+
+                        <Fluent:Button Cursor = "Hand" Name="btnPaste" Header="Paste" Padding="4,4,4,0" Click="btnPaste_Click">
+                            <Fluent:Button.LargeIcon>
+                                <Image Source = "\Images\paste.png"  RenderOptions.BitmapScalingMode="HighQuality"></Image>
+                            </Fluent:Button.LargeIcon>
+                        </Fluent:Button>
+
+                        <Fluent:Button Cursor = "Hand" Name="btnCut" Header="Cut" Padding="4,4,4,0" Click="btnCut_Click">
+                            <Fluent:Button.LargeIcon>
+                                <Image Source = "\Images\cut.png" RenderOptions.BitmapScalingMode="HighQuality"></Image>
+                            </Fluent:Button.LargeIcon>
+                        </Fluent:Button>
+                    </Fluent:RibbonGroupBox>
+                    <!--Tab Shapes-->
+                    <Fluent:RibbonGroupBox Header="Shapes">
+                        <ListView Name="lvShapes" Width="200" Height="62" Margin="8,8,8,0" SelectionChanged="lvShapes_SelectionChanged"
+                            ScrollViewer.HorizontalScrollBarVisibility="Disabled" d:ItemsSource="{d:SampleData ItemCount = 7}">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel/>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding ImageSource}" Width="20" Height="20" RenderOptions.BitmapScalingMode="HighQuality"/>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="ToolTip" Value="{Binding Name}"/>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                        </ListView>
+                    </Fluent:RibbonGroupBox>
+                    <!--Tab Styles-->
+                    <Fluent:RibbonGroupBox Header="Style">
+                        <StackPanel Orientation="Vertical" Margin="4,4,4,0" HorizontalAlignment="Center">
+                            <Image Source = "\Images\thickness.png" RenderOptions.BitmapScalingMode="HighQuality" Margin="5"
+       Width="30" HorizontalAlignment="Center"/>
+
+                            <Fluent:ComboBox x:Name="cmbBrushSize" Height="20" IsEditable="False" HorizontalAlignment="Center"
+                 SelectionChanged="cmbBrushSize_SelectionChanged" Margin="0,10,0,0">
+                                <ComboBoxItem IsSelected="True" Content="1 px"/>
+                                <ComboBoxItem Content="3 px"/>
+                                <ComboBoxItem Content="5 px"/>
+                                <ComboBoxItem Content="8 px"/>
+                            </Fluent:ComboBox>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical" Margin="4,4,4,0" HorizontalAlignment="Center">
+                            <Image Source = "\Images\dash.png" RenderOptions.BitmapScalingMode="HighQuality" Margin="5"
+       Width="40" HorizontalAlignment="Center"/>
+
+                            <Fluent:ComboBox x:Name="cmbDash" Height="20" IsEditable="False" HorizontalAlignment="Center"
+                 SelectionChanged="cmbDash_SelectionChanged">
+                                <ComboBoxItem IsSelected="True">
+                                    <TextBlock Text="____________" FontWeight="ExtraBold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </ComboBoxItem>
+                                <ComboBoxItem>
+                                    <TextBlock Text="_ _ _ _ _ _ " FontWeight="ExtraBold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </ComboBoxItem>
+
+                                <ComboBoxItem>
+                                    <TextBlock Text="............" FontWeight="ExtraBold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </ComboBoxItem>
+
+                                <ComboBoxItem>
+                                    <TextBlock Text="_._._._._._." FontWeight="ExtraBold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </ComboBoxItem>
+                            </Fluent:ComboBox>
+                        </StackPanel>
+                    </Fluent:RibbonGroupBox>
+                    <!--Tab Colors-->
+                    <Fluent:RibbonGroupBox Header="Colors" Width="350" >
+                        <StackPanel Orientation="Horizontal">
+
+
+                            <Grid  Margin="0,5,0,2" Width="200">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="1*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1*" />
+                                    <RowDefinition Height="1*" />
+                                </Grid.RowDefinitions>
+
+
+                                <Border Grid.Column="0" Grid.Row="0" BorderThickness="1" BorderBrush="Black" CornerRadius="100"
+                                    Width="28" Height="28"/>
+                                <Button Cursor = "Hand" Name="btnBlackColor"  Grid.Column="0" Grid.Row="0" Width="25" Height="25"
+                Background="Black" Click="btnBlackColor_Click">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid>
+                                                <Ellipse Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Fill="{TemplateBinding Background}"/>
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+
+
+                                <Border Grid.Column="1" Grid.Row="0" BorderThickness="1" BorderBrush="Black" CornerRadius="100"
+                                    Width="28" Height="28"/>
+                                <Button Cursor = "Hand" Name="btnGreyColor" Grid.Column="1" Grid.Row="0" Width="25" Height="25"
+                Background="Gray" Click="btnGreyColor_Click">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid>
+                                                <Ellipse Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Fill="{TemplateBinding Background}"/>
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+
+                                <Border Grid.Column="2" Grid.Row="0" BorderThickness="1" BorderBrush="Black" CornerRadius="100"
+                                Width="28" Height="28"/>
+                                <Button Cursor = "Hand" Name="btnRedColor" Grid.Column="2" Grid.Row="0" Width="25" Height="25"
+                Background="Red" Click="btnRedColor_Click">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid>
+                                                <Ellipse Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Fill="{TemplateBinding Background}"/>
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+
+                                <Border Grid.Column="3" Grid.Row="0" BorderThickness="1" BorderBrush="Black" CornerRadius="100"
+                            Width="28" Height="28"/>
+                                <Button Cursor = "Hand" Name="btnOrangeColor" Grid.Column="3" Grid.Row="0" Width="25" Height="25"
+                Background="Orange" Click="btnOrangeColor_Click">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid>
+                                                <Ellipse Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Fill="{TemplateBinding Background}"/>
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+
+                                <Border Grid.Column="4" Grid.Row="0" BorderThickness="1" BorderBrush="Black" CornerRadius="100"
+                                Width="28" Height="28"/>
+                                <Button Cursor = "Hand" Name="btnYellowColor" Grid.Column="4" Grid.Row="0" Width="25" Height="25"
+                    Background="Yellow" Click="btnYellowColor_Click">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid>
+                                                <Ellipse Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Fill="{TemplateBinding Background}"/>
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+
+
+                                <Border Grid.Column="0" Grid.Row="1" BorderThickness="1" BorderBrush="Black" CornerRadius="100"
+                        Width="28" Height="28"/>
+                                <Button Cursor = "Hand" Name="btnGreenColor" Grid.Column="0" Grid.Row="1" Width="25" Height="25"
+                Background="green" Click="btnGreenColor_Click" Margin="1">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid>
+                                                <Ellipse Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Fill="{TemplateBinding Background}"/>
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+
+                                <Border Grid.Column="1" Grid.Row="1" BorderThickness="1" BorderBrush="Black" CornerRadius="100"
+                        Width="28" Height="28"/>
+                                <Button Cursor = "Hand" Name="btnBlueColor" Grid.Column="1" Grid.Row="1" Width="25" Height="25"
+                Background="blue" Click="btnBlueColor_Click" Margin="1">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid>
+                                                <Ellipse Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Fill="{TemplateBinding Background}"/>
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+
+                                <Border Grid.Column="2" Grid.Row="1" BorderThickness="1" BorderBrush="Black" CornerRadius="100"
+                    Width="28" Height="28"/>
+                                <Button Cursor = "Hand" Name="btnPurpleColor" Grid.Column="2" Grid.Row="1" Width="25" Height="25"
+                        Background="Purple" Click="btnPurpleColor_Click" Margin="1">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid>
+                                                <Ellipse Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Fill="{TemplateBinding Background}"/>
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+
+                                <Border Grid.Column="3" Grid.Row="1" BorderThickness="1" BorderBrush="Black" CornerRadius="100"
+                Width="28" Height="28"/>
+                                <Button Cursor = "Hand" Name="btnBrownColor" Grid.Column="3" Grid.Row="1" Width="25" Height="25"
+                Background="Brown" Click="btnBrownColor_Click" Margin="1">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid>
+                                                <Ellipse Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Fill="{TemplateBinding Background}"/>
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+
+                                <Border Grid.Column="4" Grid.Row="1" BorderThickness="1" BorderBrush="Black" CornerRadius="100"
+                    Width="28" Height="28"/>
+                                <Button Cursor = "Hand" Name="btnPinkColor" Grid.Column="4" Grid.Row="1" Width="25" Height="25"
+                    Background="Pink" Click="btnPinkColor_Click" Margin="1">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid>
+                                                <Ellipse Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Fill="{TemplateBinding Background}"/>
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+                            </Grid>
+
+                            <Fluent:Button Cursor = "Hand" Name="btnEditColors" ToolTip="Edit Colors" Click="btnEditColors_Click" Padding="4,15,4,0" >
+                                <Fluent:Button.LargeIcon>
+                                    <Image Source = "\Images\color-wheel.png" RenderOptions.BitmapScalingMode="HighQuality"></Image>
+                                </Fluent:Button.LargeIcon>
+                            </Fluent:Button>
+                        </StackPanel>
+
+                    </Fluent:RibbonGroupBox>
+                </Fluent:RibbonTabItem>
+
+            </Fluent:Ribbon>
+        </StackPanel>
+        <Grid>
+            <InkCanvas Name="myInkCanvas" 
+                       Background="White"
+                       MouseLeftButtonDown="myInkCanvas_MouseLeftButtonDown"
+                       MouseMove="myInkCanvas_MouseMove"
+                       MouseLeftButtonUp="myInkCanvas_MouseLeftButtonUp"/>
+        </Grid>
+    </DockPanel>
+</Fluent:RibbonWindow>

@@ -1,0 +1,69 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\color-wheel.png" />
+    <None Remove="Images\copy.png" />
+    <None Remove="Images\cursor.png" />
+    <None Remove="Images\cut.png" />
+    <None Remove="Images\dash.png" />
+    <None Remove="Images\Ellipse.png" />
+    <None Remove="Images\eraser.png" />
+    <None Remove="Images\export.png" />
+    <None Remove="Images\fill.png" />
+    <None Remove="Images\import.png" />
+    <None Remove="Images\Line.png" />
+    <None Remove="Images\new_file.png" />
+    <None Remove="Images\open_file.png" />
+    <None Remove="Images\paste.png" />
+    <None Remove="Images\pencil.png" />
+    <None Remove="Images\Rectangle.png" />
+    <None Remove="Images\redo.png" />
+    <None Remove="Images\save.png" />
+    <None Remove="Images\thickness.png" />
+    <None Remove="Images\undo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Fluent.Ribbon" Version="10.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\IShape\IShape.csproj" />
+    <ProjectReference Include="..\MyEllipse\MyEllipse.csproj" />
+    <ProjectReference Include="..\MyLine\MyLine.csproj" />
+    <ProjectReference Include="..\MyRectangle\MyRectangle.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\color-wheel.png" />
+    <Resource Include="Images\copy.png" />
+    <Resource Include="Images\cursor.png" />
+    <Resource Include="Images\cut.png" />
+    <Resource Include="Images\dash.png" />
+    <Resource Include="Images\Ellipse.png" />
+    <Resource Include="Images\eraser.png" />
+    <Resource Include="Images\export.png" />
+    <Resource Include="Images\fill.png" />
+    <Resource Include="Images\import.png" />
+    <Resource Include="Images\Line.png" />
+    <Resource Include="Images\new_file.png" />
+    <Resource Include="Images\open_file.png" />
+    <Resource Include="Images\paste.png" />
+    <Resource Include="Images\pencil.png" />
+    <Resource Include="Images\Rectangle.png" />
+    <Resource Include="Images\redo.png" />
+    <Resource Include="Images\save.png" />
+    <Resource Include="Images\thickness.png" />
+    <Resource Include="Images\undo.png" />
+  </ItemGroup>
+
+</Project>

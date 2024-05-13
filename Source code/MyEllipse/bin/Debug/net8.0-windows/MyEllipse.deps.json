@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "MyEllipse/1.0.0": {
+        "dependencies": {
+          "IShape": "1.0.0"
+        },
+        "runtime": {
+          "MyEllipse.dll": {}
+        }
+      },
+      "IShape/1.0.0": {
+        "runtime": {
+          "IShape.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MyEllipse/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "IShape/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
